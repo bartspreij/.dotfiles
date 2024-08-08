@@ -1,0 +1,2 @@
+require("goochem")
+print("hello")
