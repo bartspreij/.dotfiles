@@ -1,2 +1,2 @@
 require("goochem")
-print("hello")
+
