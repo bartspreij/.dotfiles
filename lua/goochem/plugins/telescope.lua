@@ -22,18 +22,6 @@ return {
         vim.keymap.set('n', '<leader>s.', builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
         vim.keymap.set('n', '<leader>sb', builtin.buffers, { desc = '[ ] Find existing buffers' })
         vim.keymap.set('n', '<C-p>', builtin.git_files, {})
-        vim.keymap.set('n', '<leader>pws', function()
-            local word = vim.fn.expand("<cword>")
-            builtin.grep_string({ search = word })
-        end)
-        vim.keymap.set('n', '<leader>pWs', function()
-            local word = vim.fn.expand("<cWORD>")
-            builtin.grep_string({ search = word })
-        end)
-        vim.keymap.set('n', '<leader>ps', function()
-            builtin.grep_string({ search = vim.fn.input("Grep > ") })
-        end)
-        vim.keymap.set('n', '<leader>vh', builtin.help_tags, {})
 
         -- Shortcut for searching your Neovim configuration files
         vim.keymap.set('n', '<leader>sn', function()
