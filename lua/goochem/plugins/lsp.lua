@@ -38,7 +38,7 @@ return {
                 end,
 
 
-                ["lua_ls"] = function()
+                lua_ls = function()
                     local lspconfig = require("lspconfig")
                     lspconfig.lua_ls.setup{
                         capabilities = capabilities,
@@ -89,7 +89,16 @@ return {
                 { name = 'luasnip' }, -- For luasnip users.
                 { name = 'path' },
                 { name = 'buffer' },
+                { name = 'terminal' }
                 })
+        })
+
+        -- Set up vim-dadbod
+        cmp.setup.filetype( "sql" , {
+            sources = {
+                {name = "vim-dadbod-completion"},
+                {name = "buffer" },
+            },
         })
 
 
