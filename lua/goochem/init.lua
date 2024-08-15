@@ -2,11 +2,6 @@ require("goochem.set")
 require("goochem.remap")
 require("goochem.config.lazy")
 
-if not vim.g.vscode then
-    -- Theme
-    ColorMyPencils("catppuccin")
-end
-
 if vim.g.vscode then
     local vscode = require("vscode")
     -- VSCode-specific keybindings
@@ -46,7 +41,8 @@ autocmd('TextYankPost', {
     end,
 })
 
-autocmd({"BufWritePre"}, {
+-- removes trailing whitespace
+autocmd({ "BufWritePre" }, {
     group = ThePrimeagenGroup,
     pattern = "*",
     command = [[%s/\s\+$//e]],

@@ -11,61 +11,71 @@ return {
         "L3MON4D3/LuaSnip",
         "saadparwaiz1/cmp_luasnip",
         "j-hui/fidget.nvim",
+        "Hoffs/omnisharp-extended-lsp.nvim",
+        -- Autoformatting
+        "stevearc/conform.nvim",
     },
-
     config = function()
-        local cmp = require('cmp')
-        local cmp_lsp = require("cmp_nvim_lsp")
-        local capabilities = vim.tbl_deep_extend(
-            "force",
-            {},
-            vim.lsp.protocol.make_client_capabilities(),
-            cmp_lsp.default_capabilities())
-
         require("fidget").setup({})
-        require("mason").setup()
+        require("mason").setup({
+            ensure_installed = { "csharpier", "netcoredb" }
+        })
         require("mason-lspconfig").setup({
             ensure_installed = {
                 "lua_ls",
                 "omnisharp",
                 "jsonls"
-            },
-            handlers = {
-                function(server_name) -- default handler (optional)
-                    require("lspconfig")[server_name].setup {
-                        capabilities = capabilities
-                    }
-                end,
-
-
-                lua_ls = function()
-                    local lspconfig = require("lspconfig")
-                    lspconfig.lua_ls.setup{
-                        capabilities = capabilities,
-                        settings = {
-                            Lua = {
-                                runtime = { version = "Lua 5.1" },
-                                diagnostics = {
-                                    globals = { "bit", "vim", "it", "describe", "before_each", "after_each" },
-                                }
-                            }
-                        }
-                    }
-                end,
-                jsonls = function ()
-                    local lspconfig = require("lspconfig")
-                    lspconfig.jsonls.setup {
-                        capabilities = capabilities,
-                    }
-                end,
-                omnisharp = function ()
-                    local lspconfig = require("lspconfig")
-                    lspconfig.omnisharp.setup {
-                        capabilities = capabilities,
-                    }
-                end,
 
             }
+        })
+
+        local cmp = require('cmp')
+        local cmp_lsp = require("cmp_nvim_lsp")
+        local lspconfig = require("lspconfig")
+        local capabilities = vim.tbl_deep_extend(
+            "force",
+            {},
+            vim.lsp.protocol.make_client_capabilities(),
+            cmp_lsp.default_capabilities())
+        lspconfig.lua_ls.setup({
+            capabilities = capabilities
+        })
+
+        lspconfig.omnisharp.setup({
+            handlers = {
+                ["textDocument/definition"] = function(...)
+                    return require("omnisharp_extended").handler(...)
+                end,
+            },
+            keys = {
+                {
+                    "gd",
+                    function()
+                        require("omnisharp_extended").telescope_lsp_definitions()
+                    end,
+                    desc = "Goto Definition",
+                },
+                {
+                    "gr",
+                    function()
+                        require("omnisharp_extended").telescope_lsp_references()
+                    end,
+                    desc = "Goto Implementation",
+                },
+                {
+                    "gi",
+                    function()
+                        require("omnisharp_extended").telescope_lsp_implementations()
+                    end,
+                    desc = "Goto Definition",
+                },
+            },
+            capabilities = capabilities,
+            enable_roslyn_analysers = true,
+            enable_import_completion = true,
+            organize_imports_on_format = true,
+            enable_decompilation_support = true,
+            filetypes = { 'cs', 'vb', 'csproj', 'sln', 'slnx', 'props', 'csx', 'targets' }
         })
 
         -- COMPLETION STUFF
@@ -82,7 +92,7 @@ return {
                 ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
                 ['<C-y>'] = cmp.mapping.confirm({ select = true }),
                 ["<C-Space>"] = cmp.mapping.complete(),
-            }, {"i", "s"}),
+            }, { "i", "s" }),
 
             sources = cmp.config.sources({
                 { name = 'nvim_lsp' },
@@ -90,14 +100,14 @@ return {
                 { name = 'path' },
                 { name = 'buffer' },
                 { name = 'terminal' }
-                })
+            })
         })
 
         -- Set up vim-dadbod
-        cmp.setup.filetype( "sql" , {
+        cmp.setup.filetype("sql", {
             sources = {
-                {name = "vim-dadbod-completion"},
-                {name = "buffer" },
+                { name = "vim-dadbod-completion" },
+                { name = "buffer" },
             },
         })
 
@@ -107,17 +117,17 @@ return {
             history = false,
             updateevents = "TextChanged, TextChangedI",
         }
-        vim.keymap.set({"i", "s"}, "<C-k>", function()
+        vim.keymap.set({ "i", "s" }, "<C-k>", function()
             if ls.expand_or_jumpable() then
                 ls.expand_or_jumpable()
             end
-        end, {silent = true })
+        end, { silent = true })
 
-        vim.keymap.set({"i", "s"}, "<C-j>", function()
+        vim.keymap.set({ "i", "s" }, "<C-j>", function()
             if ls.jumpable(-1) then
                 ls.jump(-1)
             end
-        end, {silent = true })
+        end, { silent = true })
 
         -- DIAGNOSTICS STUFF
         vim.diagnostic.config({
@@ -130,6 +140,27 @@ return {
                 header = "",
                 prefix = "",
             },
+        })
+        -- FORMATTING STUFF
+        -- Autoformatting Setup
+        require("conform").setup {
+            formatters_by_ft = {
+                lua = { "stylua" },
+                cs = { "csharpier" },
+                js = { "prettier" },
+                json = { "prettier" },
+
+            },
+        }
+
+        vim.api.nvim_create_autocmd("BufWritePre", {
+            callback = function(args)
+                require("conform").format {
+                    bufnr = args.buf,
+                    lsp_fallback = true,
+                    quiet = true,
+                }
+            end,
         })
     end
 }

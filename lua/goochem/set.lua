@@ -31,3 +31,5 @@ vim.opt.colorcolumn = "80"
 -- Case-insensitive searching UNLESS \C or one or more capital letters in the search term
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
+
+vim.opt.wildmode = "list:longest,list:full" -- for : stuff
