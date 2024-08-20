@@ -37,8 +37,14 @@ return {
 			vim.lsp.protocol.make_client_capabilities(),
 			cmp_lsp.default_capabilities()
 		)
+
 		lspconfig.lua_ls.setup({
 			capabilities = capabilities,
+		})
+
+		lspconfig.jsonls.setup({
+			capabilities = capabilities,
+			filetypes = { "json" },
 		})
 
 		lspconfig.omnisharp.setup({
