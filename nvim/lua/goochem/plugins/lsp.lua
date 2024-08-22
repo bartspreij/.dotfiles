@@ -83,7 +83,6 @@ return {
 			enable_decompilation_support = true,
 			filetypes = { "cs", "vb", "csproj", "sln", "slnx", "props", "csx", "targets" },
 		})
-
 		-- COMPLETION STUFF
 		local cmp_select = { behavior = cmp.SelectBehavior.Insert }
 		cmp.setup({
@@ -92,6 +91,10 @@ return {
 				expand = function(args)
 					require("luasnip").lsp_expand(args.body) -- For `luasnip` users.
 				end,
+			},
+			window = {
+				completion = cmp.config.window.bordered(),
+				documentation = cmp.config.window.bordered(),
 			},
 			mapping = cmp.mapping.preset.insert({
 				["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
