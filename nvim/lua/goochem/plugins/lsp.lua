@@ -7,7 +7,10 @@ return {
 		"hrsh7th/cmp-buffer",
 		"hrsh7th/cmp-path",
 		"hrsh7th/cmp-cmdline",
-		"hrsh7th/nvim-cmp",
+		{
+			"yioneko/nvim-cmp",
+			branch = "perf",
+		},
 		"L3MON4D3/LuaSnip",
 		"saadparwaiz1/cmp_luasnip",
 		"j-hui/fidget.nvim",
@@ -24,10 +27,13 @@ return {
 			ensure_installed = {
 				"lua_ls",
 				"omnisharp",
+				"tsserver",
+				"angularls",
 				"jsonls",
+				"texlab",
+				"sqlls",
 			},
 		})
-
 		local cmp = require("cmp")
 		local cmp_lsp = require("cmp_nvim_lsp")
 		local lspconfig = require("lspconfig")
@@ -39,6 +45,22 @@ return {
 		)
 
 		lspconfig.lua_ls.setup({
+			capabilities = capabilities,
+		})
+
+		lspconfig.tsserver.setup({
+			capabilities = capabilities,
+		})
+
+		lspconfig.angularls.setup({
+			capabilities = capabilities,
+		})
+
+		lspconfig.texlab.setup({
+			capabilities = capabilities,
+		})
+
+		lspconfig.sqlls.setup({
 			capabilities = capabilities,
 		})
 
@@ -113,7 +135,7 @@ return {
 		})
 
 		-- Set up vim-dadbod
-		cmp.setup.filetype("sql", {
+		cmp.setup.filetype({ "sql" }, {
 			sources = {
 				{ name = "vim-dadbod-completion" },
 				{ name = "buffer" },
