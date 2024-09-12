@@ -8,7 +8,14 @@ return {
 	},
 
 	config = function()
-		require("telescope").setup({})
+		require("telescope").setup({
+			defaults = {
+				path_display = {
+					truncate = 3,
+					-- shorten = { len = 2, exclue = { 1, -1 } },
+				},
+			},
+		})
 		-- require('telescope').load_extension('projects')
 		-- require 'telescope'.extensions.projects.projects {}
 

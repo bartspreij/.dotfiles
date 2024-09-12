@@ -1,11 +1,7 @@
 vim.g.mapleader = " "
+vim.g.localeader = "\\"
 
--- Navigate vim panes better
-vim.keymap.set("n", "<C-h", ":wincmd h<CR>")
-vim.keymap.set("n", "<C-j", ":wincmd j<CR>")
-vim.keymap.set("n", "<C-k", ":wincmd k<CR>")
-vim.keymap.set("n", "<C-l", ":wincmd l<CR>")
-
+-- Joining lines stuff
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 vim.keymap.set("n", "J", "mzJ`z")
@@ -30,9 +26,9 @@ vim.keymap.set("n", "Q", "<nop>")
 vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
 
--- TODO change to something else
-vim.keymap.set("n", "<leader>h", "<cmd>cnext<CR>zz")
-vim.keymap.set("n", "<leader>;", "<cmd>cprev<CR>zz")
+-- Quickfix and location list
+-- vim.keymap.set("n", "<leader>h", "<cmd>cnext<CR>zz")
+-- vim.keymap.set("n", "<leader>;", "<cmd>cprev<CR>zz")
 vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
 vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 
@@ -40,8 +36,6 @@ vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 vim.keymap.set("n", "<leader>aps", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
-
-vim.keymap.set("n", "<leader>ee", "oif err != nil {<CR>}<Esc>Oreturn err<Esc>")
 
 vim.keymap.set("n", "<leader><leader>", function()
 	vim.cmd("so")

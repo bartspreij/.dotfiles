@@ -7,7 +7,10 @@ return {
 		"hrsh7th/cmp-buffer",
 		"hrsh7th/cmp-path",
 		"hrsh7th/cmp-cmdline",
-		"hrsh7th/nvim-cmp",
+		{
+			"yioneko/nvim-cmp",
+			branch = "perf",
+		},
 		"L3MON4D3/LuaSnip",
 		"saadparwaiz1/cmp_luasnip",
 		"j-hui/fidget.nvim",
@@ -24,10 +27,16 @@ return {
 			ensure_installed = {
 				"lua_ls",
 				"omnisharp",
+				"tsserver",
+				"angularls",
 				"jsonls",
+				"texlab",
+				"sqlls",
+				"cssls",
+				"html",
+				"emmet_language_server",
 			},
 		})
-
 		local cmp = require("cmp")
 		local cmp_lsp = require("cmp_nvim_lsp")
 		local lspconfig = require("lspconfig")
@@ -42,9 +51,37 @@ return {
 			capabilities = capabilities,
 		})
 
+		lspconfig.ts_ls.setup({
+			capabilities = capabilities,
+		})
+
+		lspconfig.angularls.setup({
+			capabilities = capabilities,
+		})
+
+		lspconfig.texlab.setup({
+			capabilities = capabilities,
+		})
+
+		lspconfig.sqlls.setup({
+			capabilities = capabilities,
+		})
+
 		lspconfig.jsonls.setup({
 			capabilities = capabilities,
 			filetypes = { "json" },
+		})
+
+		lspconfig.cssls.setup({
+			capabilities = capabilities,
+		})
+
+		lspconfig.html.setup({
+			capabilities = capabilities,
+		})
+
+		lspconfig.emmet_language_server.setup({
+			capabilities = capabilities,
 		})
 
 		lspconfig.omnisharp.setup({
@@ -83,7 +120,6 @@ return {
 			enable_decompilation_support = true,
 			filetypes = { "cs", "vb", "csproj", "sln", "slnx", "props", "csx", "targets" },
 		})
-
 		-- COMPLETION STUFF
 		local cmp_select = { behavior = cmp.SelectBehavior.Insert }
 		cmp.setup({
@@ -92,6 +128,10 @@ return {
 				expand = function(args)
 					require("luasnip").lsp_expand(args.body) -- For `luasnip` users.
 				end,
+			},
+			window = {
+				completion = cmp.config.window.bordered(),
+				documentation = cmp.config.window.bordered(),
 			},
 			mapping = cmp.mapping.preset.insert({
 				["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
@@ -110,7 +150,7 @@ return {
 		})
 
 		-- Set up vim-dadbod
-		cmp.setup.filetype("sql", {
+		cmp.setup.filetype({ "sql" }, {
 			sources = {
 				{ name = "vim-dadbod-completion" },
 				{ name = "buffer" },
@@ -153,6 +193,7 @@ return {
 				lua = { "stylua" },
 				cs = { "csharpier" },
 				js = { "prettier" },
+				ts = { "prettier" },
 				json = { "prettier" },
 			},
 		})
