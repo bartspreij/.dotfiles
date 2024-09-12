@@ -32,6 +32,9 @@ return {
 				"jsonls",
 				"texlab",
 				"sqlls",
+				"cssls",
+				"html",
+				"emmet_language_server",
 			},
 		})
 		local cmp = require("cmp")
@@ -48,7 +51,7 @@ return {
 			capabilities = capabilities,
 		})
 
-		lspconfig.tsserver.setup({
+		lspconfig.ts_ls.setup({
 			capabilities = capabilities,
 		})
 
@@ -67,6 +70,18 @@ return {
 		lspconfig.jsonls.setup({
 			capabilities = capabilities,
 			filetypes = { "json" },
+		})
+
+		lspconfig.cssls.setup({
+			capabilities = capabilities,
+		})
+
+		lspconfig.html.setup({
+			capabilities = capabilities,
+		})
+
+		lspconfig.emmet_language_server.setup({
+			capabilities = capabilities,
 		})
 
 		lspconfig.omnisharp.setup({
@@ -178,6 +193,7 @@ return {
 				lua = { "stylua" },
 				cs = { "csharpier" },
 				js = { "prettier" },
+				ts = { "prettier" },
 				json = { "prettier" },
 			},
 		})
