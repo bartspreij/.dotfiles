@@ -14,7 +14,7 @@ return {
 		"L3MON4D3/LuaSnip",
 		"saadparwaiz1/cmp_luasnip",
 		"j-hui/fidget.nvim",
-		"Hoffs/omnisharp-extended-lsp.nvim",
+		-- "Hoffs/omnisharp-extended-lsp.nvim",
 		-- Autoformatting
 		"stevearc/conform.nvim",
 	},
@@ -26,7 +26,7 @@ return {
 		require("mason-lspconfig").setup({
 			ensure_installed = {
 				"lua_ls",
-				"omnisharp",
+				-- "omnisharp",
 				"tsserver",
 				"angularls",
 				"jsonls",
@@ -84,42 +84,6 @@ return {
 			capabilities = capabilities,
 		})
 
-		lspconfig.omnisharp.setup({
-			handlers = {
-				["textDocument/definition"] = function(...)
-					return require("omnisharp_extended").handler(...)
-				end,
-			},
-			keys = {
-				{
-					"gd",
-					function()
-						require("omnisharp_extended").telescope_lsp_definitions()
-					end,
-					desc = "Goto Definition",
-				},
-				{
-					"gr",
-					function()
-						require("omnisharp_extended").telescope_lsp_references()
-					end,
-					desc = "Goto Implementation",
-				},
-				{
-					"gi",
-					function()
-						require("omnisharp_extended").telescope_lsp_implementations()
-					end,
-					desc = "Goto Definition",
-				},
-			},
-			capabilities = capabilities,
-			enable_roslyn_analysers = true,
-			enable_import_completion = true,
-			organize_imports_on_format = true,
-			enable_decompilation_support = true,
-			filetypes = { "cs", "vb", "csproj", "sln", "slnx", "props", "csx", "targets" },
-		})
 		-- COMPLETION STUFF
 		local cmp_select = { behavior = cmp.SelectBehavior.Insert }
 		cmp.setup({
@@ -185,6 +149,9 @@ return {
 				header = "",
 				prefix = "",
 			},
+			virtual_text = false,
+			virtual_lines = { only_current_line = true },
+			vim.keymap.set("", "<leader>l", require("lsp_lines").toggle, { desc = "Toggle lsp_lines" }),
 		})
 		-- FORMATTING STUFF
 		-- Autoformatting Setup
