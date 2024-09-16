@@ -79,6 +79,9 @@ autocmd("LspAttach", {
 		vim.keymap.set("n", "<leader>rn", function()
 			vim.lsp.buf.rename()
 		end, opts)
+		vim.keymap.set("n", "<leader>ih", function()
+			vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+		end, { desc = "Toggle inlay hints" })
 		vim.keymap.set("i", "<C-h>", function()
 			vim.lsp.buf.signature_help()
 		end, opts)
@@ -88,6 +91,14 @@ autocmd("LspAttach", {
 		vim.keymap.set("n", "]d", function()
 			vim.diagnostic.goto_prev()
 		end, opts)
+	end,
+})
+
+autocmd({ "BufEnter", "InsertLeave" }, {
+	group = ThePrimeagenGroup,
+	pattern = "*.cs",
+	callback = function()
+		vim.lsp.codelens.refresh()
 	end,
 })
 
