@@ -1,0 +1,1 @@
+/home/bart/.bash_aliases
