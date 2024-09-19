@@ -844,3 +844,80 @@ config status
 config rm foreignpkglist.txt
 config status
 tmux kill-session
+cd ..
+config status
+config add hypr/
+config status
+config add hypr/ -v
+config add -v hypr/
+nvim
+config add bash/
+config -m "Clean up"
+config commit -m "Clean up"
+config prune
+config status
+cd ..
+nvim
+config commit -m "Clean up"
+config add .tmux.conf 
+config status
+config add
+git add .
+ls
+cd .config/
+config add btop/
+config log
+config status
+config push --force
+git status
+config status
+config add hypr/
+config status
+git add -u
+config add -u
+config status
+config add -A
+config status
+config -m "Clean up"
+config commit -m "Clean up"
+config status
+config status -u
+config add hypr/
+config status
+config status -u
+config ls-files
+config push --force origin main
+config ls-files
+nvim
+cd ..
+config add .bashrc 
+config add .bash_aliases 
+config add .bash_history
+config add .bash_logout
+config add .bash_profile
+config status
+nvim ~/.config/surfingkeys/
+config status
+config commit -m "Added bash and revert surfingkeys"
+config push
+git add ~/.config/surfingkeys/
+config add ~/.config/surfingkeys/
+config status
+git add -u
+config add -u
+config add ~/config/surfingkeys
+config add ~/.config/surfingkeys
+config status
+config commit --amend --no-edit
+config push
+config pull
+git config pull.rebase true
+config config pull.rebase true
+nvim ~/.config/surfingkeys/
+cd .cfg/
+config config pull.rebase true
+cd ~
+nvim .gitconfig 
+config config pull.rebase true
+tmux detach
+tmux kill-session

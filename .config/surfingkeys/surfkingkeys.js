@@ -1,4 +1,3 @@
-
 settings.defaultSearchEngine = "d";
 
 // name: Rosé Pine
