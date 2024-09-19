@@ -13,9 +13,9 @@ bolt
 brave-bin
 btop
 cabextract
+caffeine-ng
 cliphist
 dhcpcd
-discord
 dotnet-runtime
 dotnet-sdk
 dunst
@@ -34,6 +34,7 @@ hyprpicker
 intel-ucode
 irssi
 iw
+jome-git
 keyd
 kitty
 kvantum
@@ -44,10 +45,10 @@ lsof
 man-db
 man-pages
 mesa
+mkcert
 mupdf
 neovim
 netcoredbg
-network-manager-applet
 networkmanager
 nm-connection-editor
 noto-fonts-emoji
@@ -96,6 +97,7 @@ ttf-nerd-fonts-symbols-mono
 udisks2
 unzip
 usb_modeswitch
+vesktop-bin
 vi
 vim
 visual-studio-code-bin
@@ -108,5 +110,7 @@ xf86-input-libinput
 xf86-video-intel
 yay-bin
 yay-bin-debug
+yuki-iptv-bin
 zathura
 zathura-pdf-mupdf
+zen-browser-bin
