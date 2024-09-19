@@ -1,7 +1,5 @@
 
 settings.defaultSearchEngine = "d";
-settings.enableEmojiInsertion = true;
-settings.startToShowEmoji = 0;
 
 // name: Rosé Pine
 // author: thuanowa
