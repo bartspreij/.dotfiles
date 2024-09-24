@@ -921,3 +921,336 @@ nvim .gitconfig
 config config pull.rebase true
 tmux detach
 tmux kill-session
+tmux attach
+tmux
+nvim
+hyperctl monitors
+hyperctl
+hyprctl monitors
+fg
+pacman -Syu
+sudo pacman -Syu
+yay -Syu
+yay -S
+cd ~/
+nvim
+sudo pacman -R yay
+sudo pacman -Ss yay
+yay -R yay
+sudo pacman -R yay-bin
+cd /tmp
+ls
+cd ..
+mkdir tmpyay
+sudo mkdir tmpyay
+cd tmpyay/
+git clone https://aur.archlinux.org/yay-bin.git
+sudo git clone https://aur.archlinux.org/yay-bin.git
+cd yay-bin/
+makepkg -si
+sudo makepkg -si
+ls
+ls -al
+chmod +w PKGBUILD 
+sudo chmod +w PKGBUILD 
+makepkg -si
+chmod +rwx .
+sudo chmod +rwx .
+makepkg -si
+cd ..
+sudo chmod +rwx .
+cd yay-bin/
+makepkg -si
+cd ~
+ls -al
+nvim
+ls
+cd /
+ls
+nv
+ls
+cd /
+ls
+rmdir tmpyay/
+sudo rmdir tmpyay/
+sudo rm -r tmpyay/
+ls
+cd ~
+mkdir tmp
+cd tmp/
+sudo git clone https://aur.archlinux.org/yay-bin.git
+cd yay-bin/
+makepkg -si
+sudo makepkg -si
+cd ..
+ls -al
+sudo chmod +rwx yay-bin/
+cd yay-bin/
+sudo makepkg -si
+makepkg -si
+cd ..
+sudo chmod +rwx tmp/
+cd tmp/yay-bin/
+makepkg -si
+cd ~
+ls -al
+cd tmp/yay-bin/
+sudo makepkg -si
+makepkg -si
+sudo chown -R bart:bart /home/bart/tmp/yay-bin
+makepkg -si
+cd ..
+clean /tmp
+ls
+rm -rf yay-bin
+cd ..
+cd tmp/
+ls
+ls -al
+cd ..
+rm -rf tmp/
+yay -Syu
+nvim
+cd ~
+ls
+rm -rf .zen/
+nvim
+pacman -Ss zen
+yay -Ss zen
+yay -Ss zen | installed
+yay -Ss zen | grep installed
+yay -Ss zen-browser
+yay -R zen-browser-bin
+lscpu | grep avx2
+yay -S zen-browser-avx2-bin
+sudo systemctl restart display-manager
+cd .config/hypr
+nvim
+wlr-randr
+nvim
+config config pull.rebase true
+config status
+nvim .bash_history 
+nvim .config/surfingkeys/surfkingkeys.js 
+config add -A
+config status
+config add .bash_history 
+config add .config/surfingkeys/surfkingkeys.js 
+config status
+config commit -m "Rebase"
+config prune
+nvim ~/.cfg/
+config push
+config log
+config pull
+config push
+xrandr
+nvim
+systemctl --user restart wireplumber pipewire
+nvim 
+hyperctl monitors all
+hyprctl monitors all
+nvim
+pwd
+cd **
+fzf
+:q
+cd **
+cd *
+cd fzf
+cd **
+cd **/
+cd /**
+fzf -h
+fzf man
+man fzf
+fzf -h
+fzf --bash
+fzf -h
+nvim .config/hypr/
+nvim
+nvim
+hyprctl monitors all
+fg
+dotnet watch
+cd BetterFeel.FrontEnd/
+dotnet watch
+nvim
+systemctl --user restart wireplumber pipewire
+bluetoothctl
+cd ~/.config/hypr/
+nvim
+zen-browser -h
+hyprland
+nvim
+nvi
+nvim
+zen-browser --headless
+zen-browser --new-window --headless
+zen-browser --new-window https://start.me/p/5kbjAn/startpagina
+nvi
+nvim
+exit
+tmux detach
+uname -a
+zen-browser -h
+nvim
+zen-browser -h
+fg
+zen-browser --search trees git clone https://aur.archlinux.org/yay-bin.git
+man git clone https://aur.archlinux.org/yay-bin.git
+nvim ~/.bashrc 
+?
+tmux
+zen-browser --search tree \!gi
+zen-browser --search "tree git clone https://aur.archlinux.org/yay-bin.git"
+zen-browser --search "tree \!gi"
+zen-browser --search -h
+zen-browser --search -help
+cd /
+nv
+jome
+cd ~/.config/hypr/
+nvim
+cd ~/.zen/
+nvim
+ls
+cp -a t3dkoew2.Default\ \(alpha\)-1-copy/. cz4gq39w.Productivity/
+cd cz
+cd cz4gq39w.Productivity/
+ls
+zen-brower -P Productivity
+zen-browser -P Productivity
+zen-browser -ProfileManager
+nvim
+zen-browser -ProfileManager
+cd ..
+ls
+cp -a t3dkoew2.Default\ \(alpha\)-1-copy/. b2buwtkp.Personal/
+cp -a t3dkoew2.Default\ \(alpha\)-1-copy/. lp8jlllg.Work/
+zen-browser -P Work
+zen-browser -h
+zen-browser --no-remote -h
+fg
+zen-browser --no-remote -P Personal
+fg
+spotify -h
+spotify
+which spotify
+cd /usr/share/
+ls
+cd spotify-launcher/
+ls
+spotify-launcher
+spotify-launcher -h
+fg
+hyprctl clients
+xprop
+clock
+utcnow
+fg
+cd ~/.zen/ 
+ls
+nvim lp8jlllg.Work/
+nvim
+detach
+tmux detach
+nvim
+tmux detach
+hyperctl clinets
+hyprctl clients
+nvim
+zen-browser -h
+fg
+hyprctl clients
+fg
+hyprctl clients
+fg
+zen-browser -h
+zen-browser --ProfileManager
+fg
+zen-browser -h
+zen-browser --headless
+fg
+bluetoothctl
+fg
+pacman -Ss anki
+yay -Ss anki
+yay -S anki
+lsblk
+fdisk
+fdisk -h
+fdisk -l
+sudo fdisk -l
+sfdisk
+sfdisk -l
+sudo sfdisk -l
+df -H
+fg
+pacman -Ss caffeine
+yay -Ss caffeine
+yay -R caffeine-ng
+fg
+cd /usr/share/themes/
+ls
+cd Catppuccin-Mocha/
+ls
+cd ..
+ls
+cd ..
+ls
+cd icons/
+ls
+yay -Ss kvantum-theme-catppucin-git
+yay -Ss catppuccin
+pacman -S kvantum-theme-catppuccin
+sudo pacman -S kvantum-theme-catppuccin
+pacman -Ss kvantum-theme-catppuccin
+pacman -Ss catppuccin
+yay -Ss kvantum-theme-catppuccin-git
+yay -Syu
+yay -S kvantum-theme-catppuccin-git
+cd /usr/share/themes/
+ls
+sudo kvantummanager
+fg
+xkill
+fg
+hyprctl clients
+hyprctl clients -h
+hyprctl clients --help
+hyprctl clients
+nvim ~/.bashrc
+sleep 10; alert
+nvim ~/.bashrc
+hyprctl clients; alert
+hyprctl clients
+fg
+pacman -Ss speedtest
+hyprctl clients
+fg
+pacman -Ss nm-applet
+pacman -Ss nm
+pacman -Ss applet
+yay -Ss nm-applet
+pacman -S network-manager-applet
+sudo pacman -S network-manager-applet
+nm-applet
+nv
+cd ~
+nv
+zen-browser --help
+zen-browser --migration
+zen-browser --ProfileManager
+zen-browser -P Personal
+zen-browser --ProfileManager
+~/.zen/
+ls
+nvim
+zen-browser --ProfileManager
+nvim
+zen-browser -P Productivity
+zen-browser --ProfileManager
+nvim
+fg
+nvim
