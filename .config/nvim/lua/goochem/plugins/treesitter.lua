@@ -12,6 +12,7 @@ return {
 				"jsdoc",
 				"bash",
 				"c_sharp",
+				"java",
 			},
 
 			-- Install parsers synchronously (only applied to `ensure_installed`)

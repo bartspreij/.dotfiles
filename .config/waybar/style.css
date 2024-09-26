@@ -36,7 +36,7 @@ window#waybar {
 
 #workspaces button:hover {
     background: #cdd6f4;
-    color: #11111b; 
+    color: #11111b;
     border-radius: 10px;
 }
 
@@ -54,7 +54,7 @@ window#waybar {
     padding: 0px 10px;
     margin: 3px 0px;
     margin-top: 5px;
-    /* border: 1px solid #181825; */
+    /*border: 1px solid #181825;*/
 }
 
 #backlight {
@@ -96,10 +96,10 @@ window#waybar {
     border-right: 0px;
 }
 
-#network {
-    color:  #a6adc8;
-    border-radius: 10px 0px 0px 10px;
 
+#network {
+    color: #a6adc8;
+    border-radius: 10px 0px 0px 10px;
 }
 
 #pulseaudio {
@@ -117,7 +117,11 @@ window#waybar {
 }
 
 #battery {
-    color:#a6adc8;
+    color: #a6adc8;
     border-radius: 0px 10px 10px 0px;
     margin-right: 10px;
+}
+
+#custom-uair.resumed {
+    color: #f87171;
 }

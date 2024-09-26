@@ -162,6 +162,7 @@ return {
 				js = { "prettier" },
 				ts = { "prettier" },
 				json = { "prettier" },
+				jsonc = { "prettier" },
 			},
 		})
 

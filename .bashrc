@@ -127,3 +127,6 @@ fi
 fastfetch
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.dotnet/tools:$PATH"
+
+# add Pulumi to the PATH
+export PATH=$PATH:/home/bart/.pulumi/bin
