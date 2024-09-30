@@ -1,0 +1,22 @@
+[defaults]
+format = "{time}\n"
+paused_state_text = "paused"
+resumed_state_text = "resumed"
+
+[[sessions]]
+id = "work"
+name = "Work"
+duration = "52m"
+command = "~/.local/bin/pomodoro-alert.sh 'Work Done!'"
+
+[[sessions]]
+id = "rest"
+name = "Rest"
+duration = "17m"
+command = "uair -q && ~/.local/bin/pomodoro-alert.sh 'Rest Done!'"
+
+# [[sessions]]
+# id = "hardwork"
+# name = "Work, but harder"
+# duration = "3s"
+# command = "uair -q && notify-send 'Hard Work Done!'"

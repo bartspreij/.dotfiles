@@ -130,3 +130,7 @@ export PATH="$HOME/.dotnet/tools:$PATH"
 
 # add Pulumi to the PATH
 export PATH=$PATH:/home/bart/.pulumi/bin
+
+
+# Load Angular CLI autocompletion.
+source <(ng completion script)

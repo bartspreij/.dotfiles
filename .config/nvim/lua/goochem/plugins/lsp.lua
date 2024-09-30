@@ -11,7 +11,7 @@ return {
 			"yioneko/nvim-cmp",
 			branch = "perf",
 		},
-		"L3MON4D3/LuaSnip",
+		{"L3MON4D3/LuaSnip", dependencies = { "rafamadriz/friendly-snippets"}},
 		"saadparwaiz1/cmp_luasnip",
 		"j-hui/fidget.nvim",
 		-- "Hoffs/omnisharp-extended-lsp.nvim",
@@ -19,6 +19,7 @@ return {
 		"stevearc/conform.nvim",
 	},
 	config = function()
+        require("luasnip.loaders.from_vscode").lazy_load()
 		require("fidget").setup({})
 		require("mason").setup({
 			ensure_installed = { "csharpier", "netcoredb" },
@@ -27,7 +28,7 @@ return {
 			ensure_installed = {
 				"lua_ls",
 				-- "omnisharp",
-				"tsserver",
+				"ts_ls",
 				"angularls",
 				"jsonls",
 				"texlab",
@@ -113,6 +114,10 @@ return {
 			}),
 		})
 
+		-- autopairs
+		local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+		cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
+
 		-- Set up vim-dadbod
 		cmp.setup.filetype({ "sql" }, {
 			sources = {
@@ -126,6 +131,7 @@ return {
 			history = false,
 			updateevents = "TextChanged, TextChangedI",
 		})
+
 		vim.keymap.set({ "i", "s" }, "<C-k>", function()
 			if ls.expand_or_jumpable() then
 				ls.expand_or_jumpable()
