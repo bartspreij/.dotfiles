@@ -13,7 +13,7 @@ command = "~/.local/bin/pomodoro-alert.sh 'Work Done!'"
 id = "rest"
 name = "Rest"
 duration = "17m"
-command = "uair -q && ~/.local/bin/pomodoro-alert.sh 'Rest Done!'"
+command = "~/.local/bin/pomodoro-alert.sh 'Rest Done!'"
 
 # [[sessions]]
 # id = "hardwork"
