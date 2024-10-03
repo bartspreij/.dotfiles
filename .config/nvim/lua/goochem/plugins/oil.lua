@@ -14,6 +14,9 @@ return {
 					show_hidden = true,
 				},
 				watch_for_changes = true,
+				keymaps = {
+					["<Esc>"] = { callback = "actions.close", mode = "n" },
+				},
 			})
 
 			-- Open parent directory in current window
