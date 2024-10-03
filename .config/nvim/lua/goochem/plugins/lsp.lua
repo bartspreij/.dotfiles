@@ -11,15 +11,14 @@ return {
 			"yioneko/nvim-cmp",
 			branch = "perf",
 		},
-		{"L3MON4D3/LuaSnip", dependencies = { "rafamadriz/friendly-snippets"}},
+		{ "L3MON4D3/LuaSnip", dependencies = { "rafamadriz/friendly-snippets" } },
 		"saadparwaiz1/cmp_luasnip",
 		"j-hui/fidget.nvim",
-		-- "Hoffs/omnisharp-extended-lsp.nvim",
 		-- Autoformatting
 		"stevearc/conform.nvim",
 	},
 	config = function()
-        require("luasnip.loaders.from_vscode").lazy_load()
+		require("luasnip.loaders.from_vscode").lazy_load()
 		require("fidget").setup({})
 		require("mason").setup({
 			ensure_installed = { "csharpier", "netcoredb" },

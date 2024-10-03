@@ -14,5 +14,8 @@ text-color = #4e4e5f
 
 prompt-text = " : "
 
+# Catppuccin Mocha
+text-color = #cdd6f4
+prompt-color = #f38ba8
+selection-color = #f9e2af
 background-color = #11111bd9
-selection-color = #83A4E7

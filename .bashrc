@@ -1,5 +1,3 @@
-[ -z "$TMUX"  ] && { tmux attach || exec tmux new-session;}
-
 #Ali-jasjes
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 

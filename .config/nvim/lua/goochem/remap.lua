@@ -35,7 +35,7 @@ vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 -- Append to word
 vim.keymap.set("n", "<leader>aps", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
-vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
+vim.keymap.set("n", "<leader>ex", "<cmd>!chmod +x %<CR>", { silent = true })
 
 vim.keymap.set("n", "<leader><leader>", function()
 	vim.cmd("so")
