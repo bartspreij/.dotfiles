@@ -20,7 +20,12 @@
   ],
 
   "hyprland/window": {
-    "format": "󰣇 {}",
+    "format": "{}",
+    "max-length": 50,
+    "rewrite": {
+      "(.*) — Zen Browser": "  $1",
+      "(.*)tmux-sessionizer": "󰨡 $0",
+    },
   },
 
   "hyprland/workspaces": {
@@ -35,9 +40,8 @@
   },
 
   "clock": {
-    "format": "{:%A    %B-%d-%Y    %H:%M}",
+    "format": "{:%A    %b%e    %H:%M}",
     "interval": 60,
-    "rotate": 0,
     "tooltip-format": "<tt>{calendar}</tt>",
     "calendar": {
       "mode": "month",
@@ -130,7 +134,7 @@
 
   "network": {
     "tooltip": true,
-    "format-wifi": "  {essid}",
+    "format-wifi": "",
     "format-ethernet": "󰈀 ",
     "tooltip-format": "Network: <big><b>{essid}</b></big>\nSignal strength: <b>{signaldBm}dBm ({signalStrength}%)</b>\nFrequency: <b>{frequency}MHz</b>\nInterface: <b>{ifname}</b>\nIP: <b>{ipaddr}/{cidr}</b>\nGateway: <b>{gwaddr}</b>\nNetmask: <b>{netmask}</b>",
     "format-linked": "󰈀 {ifname} (No IP)",
