@@ -1,3 +1,4 @@
+fastfetch
 #Ali-jasjes
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
@@ -122,7 +123,6 @@ if ! shopt -oq posix; then
   fi
 fi
 
-fastfetch
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.dotnet/tools:$PATH"
 
