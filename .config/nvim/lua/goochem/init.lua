@@ -83,13 +83,13 @@ autocmd("LspAttach", {
 			vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
 		end, { desc = "Toggle inlay hints" })
 		vim.keymap.set("n", "[d", function()
-			vim.diagnostic.goto_next()
+			vim.diagnostic.jump({ count = 1, float = true })
 		end, opts)
 		vim.keymap.set("n", "]d", function()
-			vim.diagnostic.goto_prev()
+			vim.diagnostic.jump({ count = -1, float = true })
 		end, opts)
 
-		require("lsp_signature").on_attach({}, opts)
+		require("lsp_signature").on_attach({}, opts.buffer)
 	end,
 })
 

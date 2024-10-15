@@ -15,6 +15,7 @@ return {
 					lsp_trouble = true,
 					dadbod_ui = true,
 					which_key = true,
+					mini = true,
 				},
 			})
 

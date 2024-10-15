@@ -160,25 +160,26 @@ return {
 		})
 		-- FORMATTING STUFF
 		-- Autoformatting Setup
-		require("conform").setup({
-			formatters_by_ft = {
-				lua = { "stylua" },
-				cs = { "csharpier" },
-				js = { "prettier" },
-				ts = { "prettier" },
-				json = { "prettier" },
-				jsonc = { "prettier" },
-			},
-		})
-
-		vim.api.nvim_create_autocmd("BufWritePre", {
-			callback = function(args)
-				require("conform").format({
-					bufnr = args.buf,
-					lsp_fallback = true,
-					quiet = true,
-				})
-			end,
-		})
+		-- require("conform").setup({
+		-- 	formatters_by_ft = {
+		-- 		lua = { "stylua" },
+		-- 		cs = { "csharpier" },
+		-- 		js = { "prettier" },
+		-- 		ts = { "prettier" },
+		-- 		json = { "prettier" },
+		-- 		jsonc = { "prettier" },
+		-- 		html = { "prettier" },
+		-- 	},
+		-- })
+		--
+		-- vim.api.nvim_create_autocmd("BufWritePre", {
+		-- 	callback = function(args)
+		-- 		require("conform").format({
+		-- 			bufnr = args.buf,
+		-- 			lsp_fallback = true,
+		-- 			quiet = true,
+		-- 		})
+		-- 	end,
+		-- })
 	end,
 }

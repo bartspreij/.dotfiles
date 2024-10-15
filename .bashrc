@@ -125,6 +125,8 @@ fi
 
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.dotnet/tools:$PATH"
+export PATH="$HOME/.local/share/bob/nvim-bin:$PATH"
+
 
 # add Pulumi to the PATH
 export PATH=$PATH:/home/bart/.pulumi/bin
@@ -132,3 +134,4 @@ export PATH=$PATH:/home/bart/.pulumi/bin
 
 # Load Angular CLI autocompletion.
 source <(ng completion script)
+
