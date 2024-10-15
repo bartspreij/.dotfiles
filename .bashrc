@@ -1,6 +1,6 @@
 fastfetch
 #Ali-jasjes
-alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
 
 # ~/.bashrc: executed by bash(1) for non-login shells.

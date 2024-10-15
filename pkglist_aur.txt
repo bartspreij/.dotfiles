@@ -1,5 +1,4 @@
 anki
-brave-bin
 grimblast-git
 hypnotix-wayland
 jome-git
@@ -9,6 +8,4 @@ tofi
 vesktop-bin
 visual-studio-code-bin
 wlogout
-yay-bin
-yay-bin-debug
 zen-browser-avx2-bin
