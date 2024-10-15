@@ -33,3 +33,5 @@ vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
 vim.opt.wildmode = "list:longest,list:full" -- for : stuff
+
+vim.opt.conceallevel = 1
