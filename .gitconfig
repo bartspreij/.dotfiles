@@ -1,0 +1,11 @@
+[user]
+	email = bartspreij@gmail.com
+	name = Bart Spreij
+[diff]
+    algorithm = histogram
+[init]
+    defaultBranch = main
+[push]
+    autoSetupRemote = true
+[core]
+	autocrlf = input
