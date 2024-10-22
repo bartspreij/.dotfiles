@@ -24,7 +24,7 @@ return {
 		workspaces = {
 			{
 				name = "personal",
-				path = "~/vaults/personal",
+				path = "~/steen",
 				override = {
 					notes_subdir = "notes",
 				},

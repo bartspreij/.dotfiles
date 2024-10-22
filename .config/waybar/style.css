@@ -8,12 +8,10 @@
     font-size: 14px;
     min-height: 0;
     background: transparent;
-
-}
-
-waybar {
     color: @text;
+
 }
+
 
 #workspaces {
     border-radius: 1rem;
