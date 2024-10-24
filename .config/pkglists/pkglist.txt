@@ -3,8 +3,6 @@ alsa-firmware
 alsa-lib
 alsa-plugins
 alsa-utils
-amd-ucode
-arch-install-scripts
 aspnet-runtime
 base
 base-devel
@@ -60,8 +58,6 @@ nm-connection-editor
 noto-fonts-emoji
 npm
 ntfs-3g
-nvidia-dkms
-nvidia-utils
 nwg-look
 obsidian
 openssh

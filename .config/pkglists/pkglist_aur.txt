@@ -10,7 +10,4 @@ ventoy-bin
 vesktop-bin
 visual-studio-code-bin
 wlogout
-yay-bin
-yay-bin-debug
 zen-browser-avx2-bin
-zsh-theme-powerlevel10k-git
