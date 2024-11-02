@@ -1,3 +1,8 @@
+if [ -z "${WAYLAND_DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
+    exec Hyprland >/dev/null 2>&1
+fi
+
+
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
 # The following lines were added by compinstall

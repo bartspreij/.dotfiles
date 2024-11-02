@@ -1,5 +1,5 @@
 vim.g.mapleader = " "
-vim.g.localeader = "\\"
+vim.g.localleader = "\\"
 
 -- Joining lines stuff
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")

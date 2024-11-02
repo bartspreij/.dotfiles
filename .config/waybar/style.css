@@ -74,7 +74,8 @@
 }
 
 #network {
-    border-radius: 1rem 0rem 0rem 1rem;
+    border-radius: 0rem 1rem 1rem 0rem;
+    margin-right: 0.5rem;
 }
 
 
@@ -130,8 +131,8 @@
 }
 
 #cpu {
-    border-radius: 0rem 1rem 1rem 0rem;
-    margin-right: 0.5rem;
+    /*border-radius: 0rem 1rem 1rem 0rem;*/
+    /*margin-right: 0.5rem;*/
 }
 
 #memory {
