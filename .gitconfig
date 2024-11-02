@@ -9,3 +9,4 @@
     autoSetupRemote = true
 [core]
 	autocrlf = input
+	exclusedFile = ~/.gitignore
