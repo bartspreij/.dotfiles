@@ -10,6 +10,9 @@ return {
             "benfowler/telescope-luasnip.nvim",
             module = "telescope._extensions.luasnip"
         },
+        {
+            "olacin/telescope-cc.nvim",
+        }
     },
 
     config = function()
@@ -34,6 +37,7 @@ return {
         })
         require("telescope").load_extension("fzf")
         require("telescope").load_extension("luasnip")
+        require("telescope").load_extension("conventional_commits")
         -- require('telescope').load_extension('projects')
         -- require 'telescope'.extensions.projects.projects {}
 

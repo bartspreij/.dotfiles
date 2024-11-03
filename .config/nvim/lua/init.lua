@@ -1,6 +1,6 @@
-require("goochem.set")
-require("goochem.remap")
-require("goochem.config.lazy")
+require("set")
+require("remap")
+require("config.lazy")
 
 if vim.g.vscode then
 	local vscode = require("vscode")
@@ -15,7 +15,7 @@ if vim.g.vscode then
 end
 
 local augroup = vim.api.nvim_create_augroup
-local ThePrimeagenGroup = augroup("ThePrimeagen", {})
+local lsp_attach_group = augroup("DefaultLspAttach", {})
 
 local autocmd = vim.api.nvim_create_autocmd
 local yank_group = augroup("HighlightYank", {})
@@ -43,13 +43,13 @@ autocmd("TextYankPost", {
 
 -- removes trailing whitespace
 autocmd({ "BufWritePre" }, {
-	group = ThePrimeagenGroup,
+	group = lsp_attach_group,
 	pattern = "*",
 	command = [[%s/\s\+$//e]],
 })
 
 autocmd("LspAttach", {
-	group = ThePrimeagenGroup,
+	group = lsp_attach_group,
 	callback = function(e)
 		local opts = { buffer = e.buf }
 		vim.keymap.set("n", "gd", function()
@@ -79,6 +79,7 @@ autocmd("LspAttach", {
 		vim.keymap.set("n", "<leader>ih", function()
 			vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
 		end, { desc = "Toggle inlay hints" })
+        vim.keymap.set("n", "<leader>dw", ":Telescope diagnostics<CR>", {desc = "Diagnostics in telescope"})
 		vim.keymap.set("n", "[d", function()
 			vim.diagnostic.jump({ count = 1, float = true })
 		end, opts)
@@ -86,12 +87,14 @@ autocmd("LspAttach", {
 			vim.diagnostic.jump({ count = -1, float = true })
 		end, opts)
 
+
 		require("lsp_signature").on_attach({}, opts.buffer)
 	end,
 })
 
+
 autocmd({ "BufEnter", "InsertLeave" }, {
-	group = ThePrimeagenGroup,
+	group = lsp_attach_group,
 	pattern = "*.cs",
 	callback = function()
 		vim.lsp.codelens.refresh()

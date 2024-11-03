@@ -11,9 +11,11 @@ return {
 		"DBUIAddConnection",
 		"DBUIFindBuffer",
 	},
+    keys = {
+        {"<leader>db", ":DBUIToggle <CR>", desc = "Open DBUI"},
+    },
 	init = function()
 		-- Your DBUI configuration
 		vim.g.db_ui_use_nerd_fonts = 1
-		vim.keymap.set("n", "<leader>db", ":DBUIToggle <CR>")
 	end,
 }

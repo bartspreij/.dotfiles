@@ -1,2 +1,3 @@
-require("goochem")
+require("init")
+
 
