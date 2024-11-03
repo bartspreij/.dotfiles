@@ -1,6 +1,7 @@
 anki
+google-chrome
 grimblast-git
-hypnotix-wayland
+jetbrains-toolbox
 jome-git
 kvantum-theme-catppuccin-git
 netcoredbg
@@ -10,4 +11,7 @@ ventoy-bin
 vesktop-bin
 visual-studio-code-bin
 wlogout
+yay-bin
+yay-bin-debug
+yuki-iptv
 zen-browser-avx2-bin
