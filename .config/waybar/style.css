@@ -58,7 +58,7 @@
 #backlight {
     background: @surface0;
     padding: 0rem 0.75rem;
-    margin: 0.25rem 0rem;
+    margin: 0.25rem 0rem 0rem 0rem;
 }
 
 #window {

@@ -16,6 +16,8 @@ return {
         "j-hui/fidget.nvim",
         -- Autoformatting
         "stevearc/conform.nvim",
+        -- Lsp extras
+        "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
     },
     config = function()
         require("luasnip.loaders.from_vscode").lazy_load()
@@ -145,20 +147,21 @@ return {
 
 
         -- DIAGNOSTICS STUFF
+        require("lsp_lines").setup()
+        vim.keymap.set("", "<leader>l", require("lsp_lines").toggle, { desc = "Toggle lsp_lines" })
         vim.diagnostic.config({
             -- update_in_insert = true,
             float = {
                 focusable = false,
                 style = "minimal",
                 border = "rounded",
-                source = "always",
                 header = "",
                 prefix = "",
             },
             virtual_text = false,
             virtual_lines = { only_current_line = true },
-            vim.keymap.set("", "<leader>l", require("lsp_lines").toggle, { desc = "Toggle lsp_lines" }),
         })
+
         -- FORMATTING STUFF
         require("conform").setup({
             formatters_by_ft = {

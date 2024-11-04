@@ -10,3 +10,5 @@
 [core]
 	autocrlf = input
 	exclusedFile = ~/.gitignore
+[alias]
+    mergetool = "!nvim -c DiffviewOpen"
