@@ -6,7 +6,7 @@
   "passthrough": false,
   "gtk-layer-shell": true,
   "height": 0,
-  "modules-left": ["clock", "hyprland/workspaces"],
+  "modules-left": ["clock", "hyprland/workspaces", "mpris"],
   "modules-center": ["hyprland/window"],
   "modules-right": [
     "tray",
@@ -143,6 +143,33 @@
     "format-alt": "<span foreground='#99ffdd'> {bandwidthDownBytes}</span> <span foreground='#ffcc66'> {bandwidthUpBytes}</span>",
     "interval": 2,
   },
+
+    "mpris": {
+	"format": "{player_icon}  {dynamic} {status_icon}",
+	"format-paused": "<i>{dynamic}</i> {status_icon}",
+        "interval": 1,
+	"player-icons": {
+		"mpv": "🎵",
+        "spotify": "",
+        "youtube": "",
+        "firefox": ""
+	},
+	"status-icons": {
+		"default": "⏸",
+		"paused": "▶"
+	},
+    "title-len": 10,
+    "artist-len": 10,
+    "album-len": 10,
+    "dynamic-len": "2",
+    "dynamic-order": ["artist", "title", "album"],
+    "dynamic-importance-order": ["artist", "title", "album"]
+	// "ignored-players": ["firefox"]
+}
+
+
+
+
 
   // "custom/uair": {
   //   "format": "{icon} {0}",

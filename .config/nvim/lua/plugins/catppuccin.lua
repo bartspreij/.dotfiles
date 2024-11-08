@@ -8,7 +8,11 @@ return {
 			vim.cmd.colorscheme("catppuccin-mocha")
 			require("catppuccin").setup({
 				integrations = {
+                    cmp = true,
+                    gitsigns = true,
+                    treesitter = true,
 					diffview = true,
+					notify = true,
 					nvim_surround = true,
 					lsp_trouble = true,
 					dadbod_ui = true,
@@ -16,6 +20,10 @@ return {
 				},
 			})
 
+			--  Translucent
+			vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+			vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+			vim.api.nvim_set_hl(0, "NormalNc", { bg = "none" })
 		end,
 	},
 }

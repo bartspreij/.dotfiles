@@ -87,33 +87,33 @@ return {
         })
 
         -- COMPLETION STUFF
-        local cmp_select = { behavior = cmp.SelectBehavior.Insert }
-        cmp.setup({
-            -- Enable luasnip to handle snippet expansion for nvim-cmp
-            snippet = {
-                expand = function(args)
-                    require("luasnip").lsp_expand(args.body) -- For `luasnip` users.
-                end,
-            },
-            window = {
-                completion = cmp.config.window.bordered(),
-                documentation = cmp.config.window.bordered(),
-            },
-            mapping = cmp.mapping.preset.insert({
-                ["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
-                ["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
-                ["<C-y>"] = cmp.mapping.confirm({ select = true }),
-                ["<C-Space>"] = cmp.mapping.complete(),
-            }, { "i", "s" }),
-
-            sources = cmp.config.sources({
-                { name = "nvim_lsp" },
-                { name = "luasnip" }, -- For luasnip users.
-                { name = "path" },
-                { name = "buffer" },
-                { name = "terminal" },
-            }),
-        })
+        -- local cmp_select = { behavior = cmp.SelectBehavior.Insert }
+        -- cmp.setup({
+        --     -- Enable luasnip to handle snippet expansion for nvim-cmp
+        --     snippet = {
+        --         expand = function(args)
+        --             require("luasnip").lsp_expand(args.body) -- For `luasnip` users.
+        --         end,
+        --     },
+        --     window = {
+        --         completion = cmp.config.window.bordered(),
+        --         documentation = cmp.config.window.bordered(),
+        --     },
+        --     mapping = cmp.mapping.preset.insert({
+        --         ["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
+        --         ["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
+        --         ["<C-y>"] = cmp.mapping.confirm({ select = true }),
+        --         ["<C-Space>"] = cmp.mapping.complete(),
+        --     }, { "i", "s" }),
+        --
+        --     sources = cmp.config.sources({
+        --         { name = "nvim_lsp" },
+        --         { name = "luasnip" }, -- For luasnip users.
+        --         { name = "path" },
+        --         { name = "buffer" },
+        --         { name = "terminal" },
+        --     }),
+        -- })
 
         -- autopairs
         local cmp_autopairs = require("nvim-autopairs.completion.cmp")
@@ -127,23 +127,23 @@ return {
             },
         })
 
-        local ls = require("luasnip")
-        ls.config.set_config({
-            history = false,
-            updateevents = "TextChanged, TextChangedI",
-        })
-
-        vim.keymap.set({ "i", "s" }, "<C-k>", function()
-            if ls.expand_or_jumpable() then
-                ls.expand_or_jump()
-            end
-        end, { desc = "Expand or jump forward", silent = true })
-
-        vim.keymap.set({ "i", "s" }, "<C-j>", function()
-            if ls.jumpable(-1) then
-                ls.jump(-1)
-            end
-        end, { desc = "Jump backward", silent = true })
+        -- local ls = require("luasnip")
+        -- ls.config.set_config({
+        --     history = false,
+        --     updateevents = "TextChanged, TextChangedI",
+        -- })
+        --
+        -- vim.keymap.set({ "i", "s" }, "<C-k>", function()
+        --     if ls.expand_or_jumpable() then
+        --         ls.expand_or_jump()
+        --     end
+        -- end, { desc = "Expand or jump forward", silent = true })
+        --
+        -- vim.keymap.set({ "i", "s" }, "<C-j>", function()
+        --     if ls.jumpable(-1) then
+        --         ls.jump(-1)
+        --     end
+        -- end, { desc = "Jump backward", silent = true })
 
 
         -- DIAGNOSTICS STUFF
