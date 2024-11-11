@@ -5,10 +5,11 @@
 # A complete reference of available options can be found in `man 5 tofi`.
 
 # Catppuccin Mocha
-text-color = #cdd6f4
-prompt-color = #f38ba8
-selection-color = #f9e2af
-background-color = #11111bd9
+text-color = #CDD6f4
+prompt-color = #A4B9EF
+selection-color = #E5B4E2
+# selection-background = #332E41
+background-color = #313244
 
 font = "/usr/share/fonts/TTF/IosevkaNerdFontMono-Regular.ttf"
 font-size = 14
@@ -71,8 +72,6 @@ font-size = 14
 	#     Radius of background box corners in pixels
 
 	# Prompt text theme
-	# prompt-color = #FFFFFF
-	prompt-background = #00000000
 	prompt-background-padding = 0
 	prompt-background-corner-radius = 0
 
@@ -90,7 +89,7 @@ font-size = 14
 
 	# Default result text theme
 	# default-result-color = #FFFFFF
-	default-result-background = #00000000
+	# default-result-background = #00000000
 	default-result-background-padding = 0
 	default-result-background-corner-radius = 0
 
@@ -105,12 +104,11 @@ font-size = 14
 	# alternate-result-background-corner-radius = 0
 
 	# Selection text
-	selection-background = #00000000
 	selection-background-padding = 0
 	selection-background-corner-radius = 0
 
 	# Matching portion of selection text
-	selection-match-color = #00000000
+	# selection-match-color = #E5B4E2
 
 
 #
@@ -177,19 +175,19 @@ font-size = 14
 	outline-width = 0
 
 	# Border outline color
-	outline-color = #080800
+	# outline-color = #080800
 
 	# Width of the border in pixels.
 	border-width = 0
 
 	# Border color
-	border-color = #F92672
+	# border-color = #F92672
 
 	# Radius of window corners in pixels.
-	corner-radius = 5
+	corner-radius = 0
 
 	# Padding between borders and text. Can be pixels or a percentage.
-	padding-top = 0
+	padding-top = 3
 	padding-bottom = 0
 	padding-left = 0
 	padding-right = 0
@@ -239,7 +237,7 @@ font-size = 14
 	hide-cursor = false
 
 	# Show a text cursor in the input field.
-	text-cursor = false
+	text-cursor = true
 
 	# Sort results by number of usages in run and drun modes.
 	history = true
@@ -256,7 +254,7 @@ font-size = 14
 	# algorithm.
 	#
 	# Supported values: normal, prefix, fuzzy
-	# matching-algorithm = normal
+	matching-algorithm = fuzzy
 
 	# If true, require a match to allow a selection to be made. If false,
 	# making a selection with no matches will print input to stdout.
