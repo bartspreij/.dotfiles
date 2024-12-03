@@ -2,6 +2,6 @@ return {
 	"m4xshen/smartcolumn.nvim",
 	opts = {
 		scope = "window",
-		custom_colorcolumn = { java = "120" },
+		custom_colorcolumn = { java = "120", cs = "120" },
 	},
 }

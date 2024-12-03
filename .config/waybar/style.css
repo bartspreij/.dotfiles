@@ -65,6 +65,7 @@ tooltip {
 #cpu,
 #battery,
 #memory,
+#tray,
 #workspaces,
 #backlight {
     background: @surface0;
@@ -142,9 +143,8 @@ tooltip {
 }
 
 #tray {
-    color: @surface0;
-    font-size: 0;
-
+    border-radius: 1rem;
+    margin-right: 0.5rem;
 }
 
 #cpu {

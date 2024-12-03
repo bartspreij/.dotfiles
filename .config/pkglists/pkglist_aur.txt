@@ -1,11 +1,12 @@
 anki
-google-chrome
+brave-bin
+gobang-bin
 grimblast-git
 jetbrains-toolbox
 jome-git
 kvantum-theme-catppuccin-git
 netcoredbg
-oh-my-zsh-git
+nvm
 tofi
 ventoy-bin
 vesktop-bin

@@ -23,13 +23,14 @@ return {
         require("luasnip.loaders.from_vscode").lazy_load()
         require("fidget").setup({})
         require("mason").setup({
-            ensure_installed = { "csharpier", "netcoredb", "js-debug-adapter" },
+            ensure_installed = { "csharpier", "netcoredb", "js-debug-adapter", "delve" },
         })
         require("mason-lspconfig").setup({
             ensure_installed = {
                 "lua_ls",
                 -- "omnisharp",
                 "ts_ls",
+                "denols",
                 "angularls",
                 "jsonls",
                 "texlab",
@@ -37,6 +38,8 @@ return {
                 "cssls",
                 "html",
                 "emmet_language_server",
+                "gopls",
+                "rust_analyzer",
             },
         })
         local cmp = require("cmp")
@@ -49,12 +52,27 @@ return {
             cmp_lsp.default_capabilities()
         )
 
+        lspconfig.gopls.setup({
+            capabilities = capabilities,
+        })
+
+        lspconfig.rust_analyzer.setup({
+            capabilities = capabilities,
+        })
+
         lspconfig.lua_ls.setup({
             capabilities = capabilities,
         })
 
         lspconfig.ts_ls.setup({
             capabilities = capabilities,
+            root_dir = lspconfig.util.root_pattern("package.json"),
+            single_file_support = false
+        })
+
+        lspconfig.denols.setup({
+            capabalities = capabilities,
+            root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
         })
 
         lspconfig.angularls.setup({
@@ -70,6 +88,12 @@ return {
         })
 
         lspconfig.jsonls.setup({
+            settings = {
+                json = {
+                    schemas = require('schemastore').json.schemas(),
+                    validate = { enable = true }
+                }
+            },
             capabilities = capabilities,
             filetypes = { "json" },
         })
@@ -150,7 +174,7 @@ return {
         require("lsp_lines").setup()
         vim.keymap.set("", "<leader>l", require("lsp_lines").toggle, { desc = "Toggle lsp_lines" })
         vim.diagnostic.config({
-            -- update_in_insert = true,
+            update_in_insert = true,
             float = {
                 focusable = false,
                 style = "minimal",
@@ -172,6 +196,7 @@ return {
                 json = { "prettier" },
                 jsonc = { "prettier" },
                 html = { "prettier" },
+                rs = { "rustfmt" },
             },
         })
         --

@@ -6,40 +6,25 @@ return {
             "nvim-telescope/telescope-fzf-native.nvim",
             build = "make"
         },
-        {
-            "benfowler/telescope-luasnip.nvim",
-            module = "telescope._extensions.luasnip"
-        },
-        {
-            "olacin/telescope-cc.nvim",
-        }
     },
 
     config = function()
+        local actions = require("telescope.actions")
         require("telescope").setup({
+            file_ignore_patterns = { "node_modules", ".git" },
             defaults = {
                 path_display = {
-                    truncate = 3,
-                    -- shorten = { len = 2, exclue = { 1, -1 } },
+                    "truncate",
+
                 },
-            },
-            extensions = {
-                fzf = {
-                    fuzzy = true,
-                    override_generic_sorter = true,
-                    override_file_sorter = true,
-                    case_mode = "smart_case",
+                mappings = {
+                    i = {
+                        ["<esc>"] = actions.close
+                    },
                 },
-                luasnip = {
-                    theme = "dropdown",
-                }
             },
         })
         require("telescope").load_extension("fzf")
-        require("telescope").load_extension("luasnip")
-        require("telescope").load_extension("conventional_commits")
-        -- require('telescope').load_extension('projects')
-        -- require 'telescope'.extensions.projects.projects {}
 
         local builtin = require("telescope.builtin")
         vim.keymap.set("n", "<leader>sh", builtin.help_tags, { desc = "[S]earch [H]elp" })
@@ -63,6 +48,6 @@ return {
             builtin.find_files({ cwd = vim.fn.stdpath("config") })
         end, { desc = "[S]earch [N]eovim files" })
 
-        vim.keymap.set("n", "<leader>sp", '<cmd>Telescope luasnip<CR>', { desc = "[S]earch sni[p]pets" });
+        -- vim.keymap.set("n", "<leader>sp", '<cmd>Telescope luasnip<CR>', { desc = "[S]earch sni[p]pets" });
     end,
 }

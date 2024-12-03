@@ -9,7 +9,7 @@ case "$1" in
 
         # Get current volume for display
         volume="$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print int($2 * 100)}')"
-        dunstify -a "changeVolume" -u low -t 1500 -i audio-volume-high -h string:x-dunst-stack-tag:$msgTag \
+        dunstify -a "changeVolume"  -t 1500 -i audio-volume-high -h string:x-dunst-stack-tag:$msgTag \
         -h int:value:"$volume" "Volume: ${volume}%"
 
         # Play volume change sound
@@ -19,28 +19,28 @@ case "$1" in
     "toggle")
         # Toggle mute and show notification
         wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
-        dunstify -a "changeVolume" -u low -i audio-volume-muted -h string:x-dunst-stack-tag:$msgTag \
+        dunstify -a "changeVolume"  -i audio-volume-muted -h string:x-dunst-stack-tag:$msgTag \
         "Mute toggled"
         ;;
 
     "playpause")
         # Toggle play/pause with playerctl
         playerctl play-pause
-        dunstify -a "mediaControl" -u low -i media-playback-pause -h string:x-dunst-stack-tag:"mediacontrol" \
+        dunstify -a "mediaControl"  -i media-playback-pause -h string:x-dunst-stack-tag:"mediacontrol" \
         "Play/Pause toggled"
         ;;
 
     "next")
         # Skip to the next track
         playerctl next
-        dunstify -a "mediaControl" -u low -i media-skip-forward -h string:x-dunst-stack-tag:"mediacontrol" \
+        dunstify -a "mediaControl"  -i media-skip-forward -h string:x-dunst-stack-tag:"mediacontrol" \
         "Skipped to next track"
         ;;
 
     "previous")
         # Skip to the previous track
         playerctl previous
-        dunstify -a "mediaControl" -u low -i media-skip-backward -h string:x-dunst-stack-tag:"mediacontrol" \
+        dunstify -a "mediaControl"  -i media-skip-backward -h string:x-dunst-stack-tag:"mediacontrol" \
         "Skipped to previous track"
         ;;
 

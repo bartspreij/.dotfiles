@@ -1,27 +1,41 @@
 [user]
 	email = bartspreij@gmail.com
 	name = Bart Spreij
+
 [diff]
     algorithm = histogram
+
 [init]
     defaultBranch = main
+
 [push]
     autoSetupRemote = true
+
 [core]
     pager = delta
 	autocrlf = input
 	exclusedFile = ~/.gitignore
+
 [merge]
     conflictstyle = diff3
+
 [alias]
     mergetool = "!nvim -c DiffviewOpen"
+    difftool = "!nvim -c DiffviewOpen"
     undo = reset --soft HEAD^
     l = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --decorate --date=short --color --decorate
-[delta]
-    navigate = true
-    light = false
-    side-by-side = false
-    line-number = true
+
 [interactive]
     diffFilter = delta --color-only
 
+[include]
+    path = ~/.config/delta/catppuccin.gitconfig
+
+[delta]
+    features = catppuccin-mocha
+    navigate = true
+    dark = true
+    line-number = true
+
+[safe]
+	directory = *

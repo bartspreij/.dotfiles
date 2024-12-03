@@ -20,6 +20,10 @@ vim.keymap.set("x", "<leader>p", [["_dP]])
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
 
+-- Press yc to copy unamed(") register to system(*) register
+local function regmove(r1, r2) vim.fn.setreg(r1, vim.fn.getreg(r2)) end
+vim.keymap.set("n", "yc", function() regmove('+', '"') end, { noremap = true }) -- move contents of anon register to system cliboard regist
+
 -- vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 
 vim.keymap.set("n", "Q", "<nop>")
