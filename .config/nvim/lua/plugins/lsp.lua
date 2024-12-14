@@ -17,18 +17,17 @@ return {
         -- Autoformatting
         "stevearc/conform.nvim",
         -- Lsp extras
-        "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+        -- "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
     },
     config = function()
         require("luasnip.loaders.from_vscode").lazy_load()
         require("fidget").setup({})
         require("mason").setup({
-            ensure_installed = { "csharpier", "netcoredb", "js-debug-adapter", "delve" },
+            ensure_installed = { "csharpier", "netcoredb", "js-debug-adapter", "delve", "eslint_d", "prettierd", "rustywind" },
         })
         require("mason-lspconfig").setup({
             ensure_installed = {
                 "lua_ls",
-                -- "omnisharp",
                 "ts_ls",
                 "denols",
                 "angularls",
@@ -40,6 +39,7 @@ return {
                 "emmet_language_server",
                 "gopls",
                 "rust_analyzer",
+                "tailwindcss"
             },
         })
         local cmp = require("cmp")
@@ -80,6 +80,10 @@ return {
         })
 
         lspconfig.texlab.setup({
+            capabilities = capabilities,
+        })
+
+        lspconfig.tailwindcss.setup({
             capabilities = capabilities,
         })
 
@@ -171,32 +175,42 @@ return {
 
 
         -- DIAGNOSTICS STUFF
-        require("lsp_lines").setup()
-        vim.keymap.set("", "<leader>l", require("lsp_lines").toggle, { desc = "Toggle lsp_lines" })
-        vim.diagnostic.config({
-            update_in_insert = true,
-            float = {
-                focusable = false,
-                style = "minimal",
-                border = "rounded",
-                header = "",
-                prefix = "",
-            },
-            virtual_text = false,
-            virtual_lines = { only_current_line = true },
-        })
+        -- require("lsp_lines").setup()
+        -- vim.keymap.set("", "<leader>l", require("lsp_lines").toggle, { desc = "Toggle lsp_lines" })
+        -- vim.diagnostic.config({
+        --     update_in_insert = true,
+        --     float = {
+        --         focusable = false,
+        --         style = "minimal",
+        --         border = "rounded",
+        --         header = "",
+        --         prefix = "",
+        --     },
+        --     virtual_text = false,
+        --     virtual_lines = { only_current_line = true },
+        -- })
 
         -- FORMATTING STUFF
         require("conform").setup({
             formatters_by_ft = {
                 lua = { "stylua" },
                 cs = { "csharpier" },
-                js = { "prettier" },
-                ts = { "prettier" },
-                json = { "prettier" },
-                jsonc = { "prettier" },
-                html = { "prettier" },
+                ts = { "prettierd" },
+                tsx = { "prettierd" },
                 rs = { "rustfmt" },
+                css = { "prettierd", "prettier" },
+                graphql = { "prettierd", "prettier" },
+                html = { "prettierd", "prettier" },
+                javascript = { "prettierd", "prettier" },
+                javascriptreact = { "prettierd", "prettier" },
+                json = { "prettierd", "prettier" },
+                markdown = { "prettierd", "prettier" },
+                python = { "isort", "black" },
+                sql = { "sql-formatter" },
+                svelte = { "prettierd", "prettier" },
+                typescript = { "prettierd", "prettier", "sql-formatter" },
+                typescriptreact = { "prettierd", "prettier" },
+                yaml = { "prettierd" },
             },
         })
         --
