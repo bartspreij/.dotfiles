@@ -6,14 +6,15 @@ resumed_state_text = "resumed"
 [[sessions]]
 id = "work"
 name = "Work"
-duration = "52m"
+duration = "112m"
 command = "~/.local/bin/pomodoro-alert.sh 'Work Done!'"
 
 [[sessions]]
 id = "rest"
 name = "Rest"
-duration = "17m"
+duration = "26m"
 command = "~/.local/bin/pomodoro-alert.sh 'Rest Done!'"
+autostart = true
 
 # [[sessions]]
 # id = "hardwork"
