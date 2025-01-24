@@ -10,7 +10,7 @@ return {
     config = function()
         require("fidget").setup({})
         require("mason").setup({
-            ensure_installed = { "csharpier", "netcoredb", "js-debug-adapter", "delve", "eslint_d", "prettierd", "rustywind" },
+            ensure_installed = { "csharpier", "netcoredb", "js-debug-adapter", "delve", "eslint_d", "prettierd", "rustywind", "isort", "black" },
         })
         require("mason-lspconfig").setup({
             ensure_installed = {
@@ -26,11 +26,21 @@ return {
                 "emmet_language_server",
                 "gopls",
                 "rust_analyzer",
-                "tailwindcss"
+                "tailwindcss",
+                "pyright",
+                "phpactor",
             },
         })
         local lspconfig = require("lspconfig")
         local capabilities = require('blink.cmp').get_lsp_capabilities()
+
+        lspconfig.gopls.setup({
+            capabilities = capabilities,
+        })
+
+        lspconfig.phpactor.setup({
+            capabilities = capabilities,
+        })
 
         lspconfig.gopls.setup({
             capabilities = capabilities,
