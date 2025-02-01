@@ -17,11 +17,20 @@
 	exclusedFile = ~/.gitignore
 
 [merge]
+  tool = diffview
+
+[mergetool]
+  prompt = false
+  keepBackup = false
+
+[mergetool "diffview"]
+  cmd = nvim -n -c "DiffviewOpen" "$MERGE"
+
+[merge]
+    tool = diffview
     conflictstyle = diff3
 
 [alias]
-    mergetool = "!nvim -c DiffviewOpen"
-    difftool = "!nvim -c DiffviewOpen"
     undo = reset --soft HEAD^
     l = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --decorate --date=short --color --decorate
 
