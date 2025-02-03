@@ -10,13 +10,12 @@ return {
   config = function()
     require("fidget").setup({})
     require("mason").setup({
-      ensure_installed = { "csharpier", "netcoredb", "js-debug-adapter", "delve", "eslint", "rustywind", "isort", "black" },
+      ensure_installed = { "csharpier", "netcoredb", "js-debug-adapter", "delve", "eslint", "rustywind", "isort", "black", "prettier" },
     })
     require("mason-lspconfig").setup({
       ensure_installed = {
         "lua_ls",
         "ts_ls",
-        "denols",
         "angularls",
         "jsonls",
         "texlab",
@@ -58,11 +57,6 @@ return {
       capabilities = capabilities,
       root_dir = lspconfig.util.root_pattern("package.json"),
       single_file_support = false
-    })
-
-    lspconfig.denols.setup({
-      capabalities = capabilities,
-      root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
     })
 
     lspconfig.angularls.setup({
