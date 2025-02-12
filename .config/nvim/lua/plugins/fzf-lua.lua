@@ -15,6 +15,9 @@ return {
         vim.keymap.set("n", "<leader>se", function()
             fzf.files({ cwd = vim.fn.getcwd() }) -- Similar to find_files with a custom command
         end, { desc = "[S]earch [E]xplorer" })
+        vim.keymap.set("n", "<leader>sn", function()
+            fzf.files({ cwd = "~/.config/nvim" })
+        end, { desc = "[S]earch [N]eovim Config" })
         vim.keymap.set("n", "<leader>ss", fzf.builtin, { desc = "[S]earch [S]elect FzfLua" })
         vim.keymap.set("n", "<leader>sw", fzf.grep_cword, { desc = "[S]earch current [W]ord" })
         vim.keymap.set("n", "<leader>sg", fzf.live_grep, { desc = "[S]earch by [G]rep" })
